@@ -1,72 +1,71 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { TaskContext } from '../../context/TaskContext';
-import "./AddTaskModal.css"
+import { Modal, Form, Input, Button, DatePicker, notification } from 'antd';
+import './AddTaskModal.css';
+
+const { TextArea } = Input;
 
 const AddTaskModal = ({ isOpen, onClose }) => {
     const { addTask } = useContext(TaskContext);
-    const [taskName, setTaskName] = useState('');
-    const [description, setDescription] = useState('');
-    const [date, setDate] = useState('');
+    const [form] = Form.useForm();
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        if (!taskName || !description || !date) {
-            alert('Todos los campos son necesarios');
-            return;
-        }
-        const taskData = {
-            name: taskName,
-            description,
-            date
-        };
-
+    const onFormSubmit = async () => {
         try {
-            await addTask(taskData);
-            // Reinicia el formulario
-            setTaskName('');
-            setDescription('');
-            setDate('');
-            onClose(); // Cierra el modal tras agregar la tarea, si la tarea no se agrego no se cierra
+            const values = await form.validateFields();
+            await addTask({
+                name: values.taskName,
+                description: values.description || '',
+                date: values.date.format('YYYY-MM-DD'), // Formatea la fecha como cadena
+            });
+            form.resetFields(); // Reinicia los campos del formulario después de la presentación
+            onClose(); // Cierra el modal después de agregar la tarea
         } catch (err) {
             console.error("Error al agregar la tarea: ", err);
-            alert('Error al agregar la tarea, inténtalo de nuevo.');
+            notification.error({
+                message: 'Error al agregar la tarea',
+                description: 'Error al agregar la tarea, inténtalo de nuevo.',
+                duration: 4.5 // Tiempo en segundos que la notificación será visible
+            });
         }
     };
 
-    if (!isOpen) return null;
-
     return (
-        <div className="modal">
-            <div className="modal-content">
-                <span className="close" onClick={onClose}>&times;</span>
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="taskName">Nombre de la Tarea:</label>
-                    <input
-                        type="text"
-                        id="taskName"
-                        value={taskName}
-                        onChange={(e) => setTaskName(e.target.value)}
-                        required
-                    />
-                    <label htmlFor="description">Descripción:</label>
-                    <textarea
-                        id="description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        required
-                    />
-                    <label htmlFor="date">Fecha de la Tarea:</label>
-                    <input
-                        type="date"
-                        id="date"
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                        required
-                    />
-                    <button type="submit">Agregar Tarea</button>
-                </form>
-            </div>
-        </div>
+        <Modal
+            title="Agregar Nueva Tarea"
+            open={isOpen}
+            onCancel={onClose}
+            footer={[
+                <Button key="back" onClick={onClose}>
+                    Cancelar
+                </Button>,
+                <Button key="submit" type="primary" onClick={onFormSubmit}>
+                    Agregar Tarea
+                </Button>,
+            ]}
+        >
+            <Form form={form} layout="vertical">
+                <Form.Item
+                    name="taskName"
+                    label="Nombre de la Tarea"
+                    rules={[{ required: true, message: 'Por favor ingresa el nombre de la tarea' }]}
+                >
+                    <Input />
+                </Form.Item>
+                <Form.Item
+                    name="description"
+                    label="Descripción"
+                >
+                    <TextArea rows={4} />
+                </Form.Item>
+                <Form.Item
+                    name="date"
+                    label="Fecha de la Tarea"
+                    rules={[{ required: true, message: 'Por favor selecciona una fecha' }]}
+                >
+                    <DatePicker format="YYYY-MM-DD" />
+                </Form.Item>
+            </Form>
+        </Modal>
     );
 };
 
