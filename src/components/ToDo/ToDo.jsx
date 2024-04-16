@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TaskRow from "../taskRow/TaskRow";
-import AddTaskModal from "../addTaskModal/AddTaskModal"; // Asegúrate de importar el componente modal
+import AddTaskModal from "../taskModal/taskModal"; 
 import "../../styles/main.css";
 import "./ToDo.css";
 import { useTask } from "../../context/TaskContext";

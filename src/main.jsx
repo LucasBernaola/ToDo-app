@@ -8,7 +8,7 @@ import Home from './Pages/Home';
 import { Login } from './Pages/Login';
 import Register from './Pages/Register';
 import LayoutPrivate from './LayoutPrivate';
-import ToDo from './components/ToDo/ToDo';
+import ToDo from './components/toDo/ToDo';
 
 const router = createHashRouter([
   {
