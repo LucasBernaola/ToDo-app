@@ -1,0 +1,30 @@
+.ant-input:focus, .ant-input:hover, .ant-input-textarea:focus, .ant-input-textarea:hover {
+    border-color: #4CAF50 !important;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2) !important;
+}
+
+.ant-picker-input:focus,
+.ant-picker-cell-inner:hover, .ant-picker-cell-inner:focus {
+    background-color: #4CAF50 !important; 
+}
+
+
+.ant-btn-primary {
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+}
+
+.ant-btn-primary:hover, .ant-btn:hover.ant-btn-primary {
+    background-color: #369636 !important; /* Color más oscuro para hover */
+    border-color: #369636 !important;
+}
+
+.ant-btn-primary:focus, .ant-btn:focus.ant-btn-primary {
+    background-color: #369636 !important; /* Color más oscuro para focus */
+    border-color: #369636 !important;
+}
+
+.ant-btn-primary:active, .ant-btn:active.ant-btn-primary {
+    background-color: #2e7d32 !important; /* Color más oscuro para active */
+    border-color: #2e7d32 !important;
+}
