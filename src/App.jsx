@@ -1,4 +1,4 @@
-import ToDo from "./components/ToDo/ToDo";
+import ToDo from "./components/toDo/ToDo";
 
 function App() {
   // app seria el layout general que podría incluir la navbar, footer, etc. y maneja las rutas publicas

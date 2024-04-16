@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import TaskRow from "../TakRow/TaskRow";
-import AddTaskModal from "../AddTaskModal/AddTaskModal"; // Asegúrate de importar el componente modal
+import TaskRow from "../taskRow/TaskRow";
+import AddTaskModal from "../addTaskModal/AddTaskModal"; // Asegúrate de importar el componente modal
 import "../../styles/main.css";
 import "./ToDo.css";
 import { useTask } from "../../context/TaskContext";
-import Loading from "../Loading/Loading";
+import Loading from "../loading/Loading";
 
 const ToDo = () => {
   const { tasks, loading } = useTask();

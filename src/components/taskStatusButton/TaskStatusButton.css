@@ -1,0 +1,22 @@
+.task-row.completed {
+    background-color: #e0f7fa;
+}
+
+.button {
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.complete {
+    background-color: #64b5f6;
+}
+
+.incomplete {
+    background-color: #f6b464;
+}
+
+.complete-button:hover {
+    background-color: #2196f3;
+}

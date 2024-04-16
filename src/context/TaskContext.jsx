@@ -47,7 +47,6 @@ export function TaskProvider({ children }) {
 
     // Función para agregar una nueva tarea a Firestore y actualizar el estado local.
     const addTask = useCallback(async (taskData) => {
-        setLoading(true);
         try {
             // Agregar el campo complete: false a la tarea
             const completeTaskData = {...taskData, completed: false}
@@ -60,12 +59,10 @@ export function TaskProvider({ children }) {
             console.error("Error al agregar la tarea: ", err);
             setError(err);
         }
-        setLoading(false);
     }, []);
 
     // Función para actualizar una tarea existente en Firestore y en el estado local.
     const updateTask = useCallback(async (taskId, updatedData) => {
-        setLoading(true);
         try {
             // Actualizar el documento específico en la colección 'tasks'.
             await updateDoc(doc(db, "tasks", taskId), updatedData);
@@ -78,12 +75,10 @@ export function TaskProvider({ children }) {
             console.error("Error al actualizar la tarea: ", err);
             setError(err);
         }
-        setLoading(false);
     }, []);
 
     // Función para eliminar una tarea de Firestore y actualizar el estado local.
-    const deleteTask = useCallback(async (taskId) => {
-        setLoading(true);
+    const deleteTask = useCallback(async (taskId) => {       
         try {
             // Eliminar el documento específico de la colección 'tasks'.
             await deleteDoc(doc(db, "tasks", taskId));
@@ -94,7 +89,6 @@ export function TaskProvider({ children }) {
             console.error("Error al eliminar la tarea: ", err);
             setError(err);
         }
-        setLoading(false);
     },
         []);
 
