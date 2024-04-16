@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TaskRow from "../taskRow/TaskRow";
-import AddTaskModal from "../taskModal/taskModal"; 
+import TaskModal from "../taskModal/taskModal"; 
 import "../../styles/main.css";
 import "./ToDo.css";
 import { useTask } from "../../context/TaskContext";
@@ -29,7 +29,7 @@ const ToDo = () => {
         </div>
       )}
 
-      <AddTaskModal isOpen={isModalOpen} onClose={closeModal} />
+      <TaskModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

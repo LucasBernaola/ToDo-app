@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTask } from "../../context/TaskContext";
 import "./TaskRow.css";
 import TaskStatusButton from "../taskStatusButton/TaskStatusButton";
-import AddTaskModal from "../taskModal/taskModal";
+import TaskModal from "../taskModal/taskModal";
 
 const TaskRow = ({ task }) => {
   const { deleteTask } = useTask();
@@ -20,7 +20,7 @@ const TaskRow = ({ task }) => {
       <p>{date}</p>
       <button onClick={openModal}>Editar Tarea</button>
       <button onClick={() => deleteTask(id)}>Delete</button>
-      <AddTaskModal task={task} isOpen={isModalOpen} onClose={closeModal} />
+      <TaskModal task={task} isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

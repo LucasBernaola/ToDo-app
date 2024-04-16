@@ -6,7 +6,7 @@ import "./taskModal.css";
 
 const { TextArea } = Input;
 
-const AddTaskModal = ({ isOpen, onClose, task }) => {
+const TaskModal = ({ isOpen, onClose, task }) => {
   console.log(task);
   const { addTask, updateTask } = useContext(TaskContext);
   const [form] = Form.useForm();
@@ -105,4 +105,4 @@ const AddTaskModal = ({ isOpen, onClose, task }) => {
   );
 };
 
-export default AddTaskModal;
+export default TaskModal;
