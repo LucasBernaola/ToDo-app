@@ -1,0 +1,21 @@
+.container {
+    width: 80%; 
+    margin: 30% auto; 
+    padding: 20px; 
+  }
+  
+.task-row.completed {
+  background-color: #e0f7fa;
+}
+  
+.complete-button {
+  background-color: #64b5f6;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+  
+.complete-button:hover {
+  background-color: #2196f3;
+}
