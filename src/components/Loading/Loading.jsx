@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./Loading.css"
 const Loading = () => {
     return (
         <div className='fixed inset-0 bg-transparent bg-opacity-50 flex flex-col items-center z-50 pt-48'>
