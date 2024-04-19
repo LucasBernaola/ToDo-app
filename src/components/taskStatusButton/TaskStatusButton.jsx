@@ -23,7 +23,7 @@ const TaskStatusButton = ({isComplete, id}) => {
 
     return ( 
         <button disabled={loading} className={ completed ? 'button complete' : 'button incomplete'} onClick={()=>toggleCompleted(id)}>
-        {completed ? 'Completada' : 'Incompleta'}
+        {completed ? 'Completed' : 'Incomplete'}
     </button>
      );
 }

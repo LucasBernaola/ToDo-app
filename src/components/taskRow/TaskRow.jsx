@@ -16,12 +16,22 @@ const TaskRow = ({ task }) => {
       <div className="flex items-center justify-between mb-2">
         <TaskStatusButton isComplete={completed} id={id} />
         <div>
-          <button className="mr-2" onClick={openModal}>Editar Tarea</button>
-          <button onClick={() => deleteTask(id)}>Delete</button>
+          <button 
+            className="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={openModal}
+          >
+            Edit Task
+          </button>
+          <button 
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            onClick={() => deleteTask(id)}
+          >
+            Delete
+          </button>
         </div>
       </div>
       <h2 className={`text-lg font-bold ${completed ? "line-through" : ""}`}>{name}</h2>
-      <p className="text-sm">{description}</p>
+      <p className="text-sm break-all">{description}</p>
       <p className="text-xs text-gray-500">{date}</p>
       <TaskModal task={task} isOpen={isModalOpen} onClose={closeModal} />
     </div>
@@ -29,3 +39,4 @@ const TaskRow = ({ task }) => {
 };
 
 export default TaskRow;
+

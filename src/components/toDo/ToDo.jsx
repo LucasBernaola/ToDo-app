@@ -14,27 +14,27 @@ const ToDo = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="container mx-auto px-4">
-      <div className="my-8">
+    <div className="container mx-auto px-4 max-w-6xl mb-15 h-full">
+      <div className="my-8 flex justify-center mb-20">
         <button
-          className="bg-green-500 hover:bg-secondary text-white font-bold py-2 px-4 rounded"
+          className="bg-green-500 hover:bg-secondary text-textSecondary text-4xl font-bold py-2 px-20 rounded shadow-lg"
           onClick={openModal}
         >
-          Añadir tarea
+          Add new task
         </button>
       </div>
       <div className="max-h-80 overflow-y-auto">
         {loading ? (
           <Loading />
         ) : tasks.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
             {tasks.map((task) => (
               <TaskRow key={task.id} task={task} />
             ))}
           </div>
         ) : (
-          <div>
-            <p>No hay tareas listadas</p>
+          <div className="flex justify-center items-center h-48 bg-white shadow-md rounded-lg p-4">
+            <p className="text-lg text-gray-700">No tasks listed</p>
           </div>
         )}
       </div>
@@ -44,3 +44,4 @@ const ToDo = () => {
 };
 
 export default ToDo;
+

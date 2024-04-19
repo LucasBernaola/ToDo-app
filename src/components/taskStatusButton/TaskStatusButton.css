@@ -10,13 +10,9 @@
 }
 
 .complete {
-    background-color: #64b5f6;
+    background-color: #4CAF50;
 }
 
 .incomplete {
-    background-color: #f6b464;
-}
-
-.complete-button:hover {
-    background-color: #2196f3;
+    background-color: #FF5722;
 }
