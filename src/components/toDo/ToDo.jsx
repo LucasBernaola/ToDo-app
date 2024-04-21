@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useTask } from "../../context/TaskContext";
 import TaskRow from "../taskRow/TaskRow";
 import TaskModal from "../taskModal/taskModal";
@@ -23,7 +23,7 @@ const ToDo = () => {
           Add new task
         </button>
       </div>
-      <div className="max-h-80 overflow-y-auto">
+      <div className="max-h-80 overflow-y-auto ">
         {loading ? (
           <Loading />
         ) : tasks.length > 0 ? (

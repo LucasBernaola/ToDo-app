@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import { useTask } from "../../context/TaskContext";
 import TaskStatusButton from "../taskStatusButton/TaskStatusButton";
 import TaskModal from "../taskModal/taskModal";
@@ -36,6 +37,16 @@ const TaskRow = ({ task }) => {
       <TaskModal task={task} isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
+};
+
+TaskRow.propTypes = {
+  task: PropTypes.shape({
+    id: PropTypes.string.isRequired, 
+    name: PropTypes.string.isRequired, 
+    description: PropTypes.string.isRequired, 
+    completed: PropTypes.bool.isRequired,
+    date: PropTypes.string.isRequired 
+  }).isRequired 
 };
 
 export default TaskRow;

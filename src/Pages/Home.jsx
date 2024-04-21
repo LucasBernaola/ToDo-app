@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ToDo from '../components/toDo/ToDo';
 import AboutApp from '../components/AboutApp';
