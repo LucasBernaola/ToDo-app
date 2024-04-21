@@ -4,6 +4,8 @@ import ToDo from '../components/toDo/ToDo';
 import AboutApp from '../components/AboutApp';
 import AboutUs from '../components/AboutUS';
 
+import ".././styles/home.css"
+
 const Home = () => {
     useEffect(() => {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
