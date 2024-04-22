@@ -3,40 +3,24 @@ import React, { useState } from "react";
 const TaskFilter = ({ setFilter }) => {
   const [selectedFilter, setSelectedFilter] = useState("all");
 
-  const handleFilterChange = (filter) => {
-    setSelectedFilter(filter);
-    setFilter(filter);
+  const handleFilterChange = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedFilter(selectedValue);
+    setFilter(selectedValue);
   };
 
   return (
     <div>
-      <label>
-        <input
-          type="radio"
-          value="all"
-          checked={selectedFilter === "all"}
-          onChange={() => handleFilterChange("all")}
-        />
-        Todas
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="completed"
-          checked={selectedFilter === "completed"}
-          onChange={() => handleFilterChange("completed")}
-        />
-        Completadas
-      </label>
-      <label>
-        <input
-          type="radio"
-          value="incomplete"
-          checked={selectedFilter === "incomplete"}
-          onChange={() => handleFilterChange("incomplete")}
-        />
-        Incompletas
-      </label>
+      <label htmlFor="filterSelect">Status: </label>
+      <select
+        id="filterSelect"
+        value={selectedFilter}
+        onChange={handleFilterChange}
+      >
+        <option value="all">Todas</option>
+        <option value="completed">Completadas</option>
+        <option value="incomplete">Incompletas</option>
+      </select>
     </div>
   );
 };
