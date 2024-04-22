@@ -7,7 +7,7 @@ function App() {
   // se debe mover ToDo al layout privado cuando se haga el login
   return (
     <div>
-      <Filter />
+      
       <ToDo />
     </div>
   );
