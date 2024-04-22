@@ -10,16 +10,28 @@ const TaskFilter = ({ setFilter }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="filterSelect">Status: </label>
+    <div className="my-4 flex items-center">
+      <label
+        className="mr-2 font-medium text-textPrimary"
+        htmlFor="filterSelect"
+      >
+        Status:
+      </label>
       <select
+        className="border rounded-md py-1 px-2 focus:outline-none focus:ring focus:border-primary"
         id="filterSelect"
         value={selectedFilter}
         onChange={handleFilterChange}
       >
-        <option value="all">Todas</option>
-        <option value="completed">Completadas</option>
-        <option value="incomplete">Incompletas</option>
+        <option className="text-textPrimary" value="all">
+          All
+        </option>
+        <option className="text-textPrimary" value="completed">
+          Completed
+        </option>
+        <option className="text-textPrimary" value="incomplete">
+          Incomplete
+        </option>
       </select>
     </div>
   );

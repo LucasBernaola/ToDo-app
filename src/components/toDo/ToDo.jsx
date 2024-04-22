@@ -53,8 +53,10 @@ const ToDo = () => {
         </button>
 
         <div className="max-h-80 overflow-y-auto ">
-          <TaskFilter setFilter={setFilter} />
-          <DateFilter setStartDate={setStartDate} setEndDate={setEndDate} />
+          <div className=" flex mb-3">
+            <TaskFilter setFilter={setFilter} />
+            <DateFilter setStartDate={setStartDate} setEndDate={setEndDate} />
+          </div>
           {loading ? (
             <Loading />
           ) : tasks.length > 0 ? (

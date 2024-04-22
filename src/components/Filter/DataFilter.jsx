@@ -17,17 +17,23 @@ const DateFilter = ({ setStartDate, setEndDate }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="startDate">Fecha de inicio:</label>
+    <div className="my-4 flex items-center">
+      <label className="mr-2 font-medium text-textPrimary" htmlFor="startDate">
+        Start Date:
+      </label>
       <input
+        className="border rounded-md py-1 px-2 focus:outline-none focus:ring focus:border-primary"
         type="date"
         id="startDate"
         value={startDate}
         onChange={handleStartDateChange}
       />
 
-      <label htmlFor="endDate">Fecha de fin:</label>
+      <label className="mx-4 font-medium text-textPrimary" htmlFor="endDate">
+        End Date:
+      </label>
       <input
+        className="border rounded-md py-1 px-2 focus:outline-none focus:ring focus:border-primary"
         type="date"
         id="endDate"
         value={endDate}
