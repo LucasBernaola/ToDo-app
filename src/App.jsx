@@ -8,6 +8,7 @@ import Error from "./Pages/Error";
 import { TaskProvider } from "./context/TaskContext";
 
 import "@fortawesome/fontawesome-free/css/all.css";
+import Lading from "./Pages/Lading";
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
     <TaskProvider>
     <BrowserRouter>
         <Routes>
-          <Route exact path="/" element ={ <Home/>} />
+          <Route exact path="/" element ={ <Home/> } />
           <Route exact path="/login" element ={ <Login/>} />
           <Route exact path="/register" element ={ <Register/>} />
-          <Route path="*" element={<Error />} />
+          <Route exact path="/home" element ={ <Lading/>} />
+          <Route path="*" element={ <Error />} />
           
         </Routes>
       </BrowserRouter>

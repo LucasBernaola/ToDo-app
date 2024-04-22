@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { useTask } from "../../context/TaskContext";
 import TaskStatusButton from "../taskStatusButton/TaskStatusButton";
 import TaskModal from "../taskModal/taskModal";
+//icons
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const TaskRow = ({ task }) => {
   const { deleteTask } = useTask();
@@ -27,7 +30,7 @@ const TaskRow = ({ task }) => {
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
             onClick={() => deleteTask(id)}
           >
-            Delete
+            <DeleteIcon/>
           </button>
         </div>
       </div>
