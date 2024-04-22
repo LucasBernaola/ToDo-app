@@ -1,12 +1,9 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useTask } from "../../context/TaskContext";
 import TaskRow from "../taskRow/TaskRow";
 import TaskModal from "../taskModal/taskModal";
-import TaskModal from "../taskModal/taskModal";
 import "../../styles/main.css";
 import "./ToDo.css";
-import Loading from "../Loading/Loading";
-import { useTask } from "../../context/TaskContext";
 import Loading from "../Loading/Loading";
 import TaskFilter from "../Filter/Filter";
 import DateFilter from "../Filter/DataFilter";
@@ -54,41 +51,28 @@ const ToDo = () => {
         >
           Add new task
         </button>
-    <div className="container">
-      <TaskFilter setFilter={setFilter} />
-      <DateFilter setStartDate={setStartDate} setEndDate={setEndDate} />
-      <div>
-        <button onClick={openModal}>Añadir tarea</button>
-      </div>
-      <div className="max-h-80 overflow-y-auto ">
-        {loading ? (
-          <Loading />
-        ) : tasks.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-            {tasks.map((task) => (
-              <TaskRow key={task.id} task={task} />
-            ))}
-          </div>
-        ) : (
-          <div className="flex justify-center items-center h-48 bg-white shadow-md rounded-lg p-4">
-            <p className="text-lg text-gray-700">No tasks listed</p>
-          </div>
-        )}
-      </div>
-      {loading ? (
-        <Loading /> // Show loading component when tasks are loading
-      ) : tasks.length > 0 ? (
-        filteredTasks.map((task) => <TaskRow key={task.id} task={task} />)
-      ) : (
-        <div>
-          <p>No hay tareas listadas</p>
-        </div>
-      )}
 
+        <div className="max-h-80 overflow-y-auto ">
+          <TaskFilter setFilter={setFilter} />
+          <DateFilter setStartDate={setStartDate} setEndDate={setEndDate} />
+          {loading ? (
+            <Loading />
+          ) : tasks.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+              {filteredTasks.map((task) => (
+                <TaskRow key={task.id} task={task} />
+              ))}
+            </div>
+          ) : (
+            <div className="flex justify-center items-center h-48 bg-white shadow-md rounded-lg p-4">
+              <p className="text-lg text-gray-700">No tasks listed</p>
+            </div>
+          )}
+        </div>
+      </div>
       <TaskModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };
 
 export default ToDo;
-
