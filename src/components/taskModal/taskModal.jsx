@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { TaskContext } from "../../context/TaskContext";
-import { Modal, Form, Input, Button, DatePicker, notification } from "antd"; // Importa el componente Form de Ant Design
+import { Modal, Form, Input, Button, DatePicker, notification } from "antd";
 import moment from "moment";
 import "./taskModal.css";
 
@@ -8,7 +8,7 @@ const { TextArea } = Input;
 
 const TaskModal = ({ isOpen, onClose, task }) => {
   const { addTask, updateTask } = useContext(TaskContext);
-  const [form] = Form.useForm(); // Utiliza el hook useForm dentro del componente Form de Ant Design
+  const [form] = Form.useForm();
   const taskExist = !!task;
 
   useEffect(() => {
@@ -33,13 +33,13 @@ const TaskModal = ({ isOpen, onClose, task }) => {
       if (taskExist) {
         await updateTask(task.id, taskData);
         notification.success({
-          message: "Tarea actualizada",
+          message: "Updated task",
           duration: 2.5,
         });
       } else {
         await addTask(taskData);
         notification.success({
-          message: "Tarea agregada",
+          message: "Added task",
           duration: 2.5,
         });
       }
@@ -48,8 +48,8 @@ const TaskModal = ({ isOpen, onClose, task }) => {
       onClose();
     } catch (err) {
       notification.error({
-        message: "Error al procesar la tarea",
-        description: "Hubo un problema, inténtalo de nuevo.",
+        message: "Error processing task",
+        description: "There was a problem, try again.",
         duration: 4.5,
       });
     }
@@ -57,7 +57,7 @@ const TaskModal = ({ isOpen, onClose, task }) => {
 
   return (
     <Modal
-      title={taskExist ? "Editar Tarea" : "Agregar Nueva Tarea"}
+      title={taskExist ? "Edit Task" : "Add New Task"}
       open={isOpen}
       onCancel={onClose}
       footer={[
@@ -65,31 +65,31 @@ const TaskModal = ({ isOpen, onClose, task }) => {
           Cancelar
         </Button>,
         <Button key="submit" type="primary" onClick={onFormSubmit}>
-          {taskExist ? "Actualizar Tarea" : "Agregar Tarea"}
+          {taskExist ? "Update Task" : "Add Task"}
         </Button>,
       ]}
     >
-      <Form form={form} layout="vertical"> {/* Asegúrate de que el hook useForm esté conectado al componente Form */}
+      <Form form={form} layout="vertical">
         <Form.Item
           name="taskName"
-          label="Nombre de la Tarea"
+          label="Name of the Task"
           rules={[
             {
               required: true,
-              message: "Por favor ingresa el nombre de la tarea",
+              message: "Please enter the name of the task",
             },
           ]}
         >
           <Input />
         </Form.Item>
-        <Form.Item name="description" label="Descripción">
+        <Form.Item name="description" label="Description">
           <TextArea rows={4} />
         </Form.Item>
         <Form.Item
           name="date"
-          label="Fecha de la Tarea"
+          label="Task Date"
           rules={[
-            { required: true, message: "Por favor selecciona una fecha" },
+            { required: true, message: "Please select a date" },
           ]}
         >
           <DatePicker format="YYYY-MM-DD" />
