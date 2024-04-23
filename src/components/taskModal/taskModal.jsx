@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { TaskContext } from "../../context/TaskContext";
 import { Modal, Form, Input, Button, DatePicker, notification } from "antd"; // Importa el componente Form de Ant Design
-import moment from "moment";
 import "./taskModal.css";
 
 const { TextArea } = Input;
@@ -16,7 +15,6 @@ const TaskModal = ({ isOpen, onClose, task }) => {
       form.setFieldsValue({
         taskName: task.name,
         description: task.description,
-        date: moment(task.date),
       });
     }
   }, [task, form, taskExist]);
