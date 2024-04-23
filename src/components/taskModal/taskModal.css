@@ -15,16 +15,16 @@
 }
 
 .ant-btn-primary:hover, .ant-btn:hover.ant-btn-primary {
-    background-color: #369636 !important; /* Color más oscuro para hover */
+    background-color: #369636 !important;
     border-color: #369636 !important;
 }
 
 .ant-btn-primary:focus, .ant-btn:focus.ant-btn-primary {
-    background-color: #369636 !important; /* Color más oscuro para focus */
+    background-color: #369636 !important;
     border-color: #369636 !important;
 }
 
 .ant-btn-primary:active, .ant-btn:active.ant-btn-primary {
-    background-color: #2e7d32 !important; /* Color más oscuro para active */
+    background-color: #2e7d32 !important;
     border-color: #2e7d32 !important;
 }

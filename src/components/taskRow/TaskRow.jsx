@@ -3,6 +3,7 @@ import { useTask } from "../../context/TaskContext";
 import TaskStatusButton from "../taskStatusButton/TaskStatusButton";
 import TaskModal from "../taskModal/taskModal";
 
+
 const TaskRow = ({ task }) => {
   const { deleteTask } = useTask();
   const [isModalOpen, setIsModalOpen] = useState(false);
