@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { TaskContext } from "../../context/TaskContext";
-import { Modal, Form, Input, Button, DatePicker, notification } from "antd"; // Importa el componente Form de Ant Design
+import { Modal, Form, Input, Button, DatePicker, notification } from "antd";
 import moment from "moment";
 import "./taskModal.css";
 
@@ -61,7 +61,7 @@ const TaskModal = ({ isOpen, onClose, task }) => {
       onCancel={onClose}
       footer={[
         <Button key="back" onClick={onClose}>
-          Cancelar
+          Cancel
         </Button>,
         <Button key="submit" type="primary" onClick={onFormSubmit}>
           {taskExist ? "Update Task" : "Add Task"}
@@ -71,7 +71,7 @@ const TaskModal = ({ isOpen, onClose, task }) => {
       <Form form={form} layout="vertical">
         <Form.Item
           name="taskName"
-          label="Name of the Task"
+          label="Task name"
           rules={[
             {
               required: true,

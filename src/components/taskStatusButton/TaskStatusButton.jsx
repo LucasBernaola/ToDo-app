@@ -15,7 +15,7 @@ const TaskStatusButton = ({isComplete, id}) => {
             setCompleted(!completed);
             updateTask(id,{completed: !completed} );
         } catch (error) {
-            console.error("Error al actualizar la tarea: ", error);
+            console.error("Error updating task: ", error);
         }
         setLoading(false);
 
