@@ -21,6 +21,7 @@ export function TaskProvider({ children }) {
         setLoading(true);
         try {
             const querySnapshot = await getDocs(collection(db, "tasks"));
+            console.log(querySnapshot);
             const tasksData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
             setTasks(tasksData);
         } catch (err) {
