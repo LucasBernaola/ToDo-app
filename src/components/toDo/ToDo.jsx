@@ -7,7 +7,6 @@ import DateFilter from "../DateFilter/DateFilter";
 import "../../styles/main.css";
 import "./ToDo.css";
 import Loading from "../Loading/Loading";
-
 const ToDo = () => {
   const { tasks, loading } = useTask();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +16,6 @@ const ToDo = () => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-
 
   const filteredTasks = tasks.filter((task) => {
     if (filter === "completed") {
