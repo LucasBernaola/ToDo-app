@@ -11,12 +11,6 @@ import TaskFilter from "../Filter/Filter";
 import DateFilter from "../Filter/DataFilter";
 
 const ToDo = () => {
-  const { tasks, loading } = useTask();
-  const [filter, setFilter] = useState("all");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-
-  // Añade un estado para controlar si el modal de agregar tareas está abierto o cerrado
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filter, setFilter] = useState("all");
   const [startDate, setStartDate] = useState("");
