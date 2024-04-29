@@ -1,19 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import { TaskContext } from "../../context/TaskContext";
-import { Modal, Form, Input, Button, DatePicker, notification } from "antd";
+import { Modal, Form, Input, Button, DatePicker, notification } from "antd"; // Importa el componente Form de Ant Design
 import moment from "moment";
 import "./taskModal.css";
 
 const { TextArea } = Input;
 
 const TaskModal = ({ isOpen, onClose, task }) => {
-  console.log(task);
   const { addTask, updateTask } = useContext(TaskContext);
-  const [form] = Form.useForm();
-  // Verificamos que ha llegado una tarea para a continuacion, si hay tarea ir paso a paso para editarla, si no, para crearla.
+  const [form] = Form.useForm(); // Utiliza el hook useForm dentro del componente Form de Ant Design
   const taskExist = !!task;
 
-  // Utilizamos l effect para traer los datos al formulario.
   useEffect(() => {
     if (taskExist && task) {
       form.setFieldsValue({
@@ -33,7 +30,6 @@ const TaskModal = ({ isOpen, onClose, task }) => {
         date: values.date.format("YYYY-MM-DD"),
       };
 
-      // Editamos la tarea existente
       if (taskExist) {
         await updateTask(task.id, taskData);
         notification.success({
@@ -41,7 +37,6 @@ const TaskModal = ({ isOpen, onClose, task }) => {
           duration: 2.5,
         });
       } else {
-        // Creamos la tarea
         await addTask(taskData);
         notification.success({
           message: "Tarea agregada",
@@ -52,7 +47,6 @@ const TaskModal = ({ isOpen, onClose, task }) => {
       form.resetFields();
       onClose();
     } catch (err) {
-      console.error("Error al procesar la tarea: ", err);
       notification.error({
         message: "Error al procesar la tarea",
         description: "Hubo un problema, inténtalo de nuevo.",
@@ -75,7 +69,7 @@ const TaskModal = ({ isOpen, onClose, task }) => {
         </Button>,
       ]}
     >
-      <Form form={form} layout="vertical">
+      <Form form={form} layout="vertical"> {/* Asegúrate de que el hook useForm esté conectado al componente Form */}
         <Form.Item
           name="taskName"
           label="Nombre de la Tarea"
