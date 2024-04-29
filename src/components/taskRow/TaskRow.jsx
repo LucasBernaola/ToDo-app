@@ -5,12 +5,17 @@ import TaskModal from "../taskModal/taskModal";
 
 
 const TaskRow = ({ task }) => {
+  console.log("TaskRow - task:", task);
   const { deleteTask } = useTask();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   const { id, name, description, completed, date } = task;
+
+const handleDelete = () => {
+    deleteTask(task);
+  };
 
   return (
     <div className="bg-white shadow-md rounded-lg p-4 mb-4">
@@ -25,7 +30,7 @@ const TaskRow = ({ task }) => {
           </button>
           <button 
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() => deleteTask(id)}
+            onClick={handleDelete}
           >
             Delete
           </button>

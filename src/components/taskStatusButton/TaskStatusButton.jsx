@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import { useTask } from '../../context/TaskContext';
-import "./TaskStatusButton.css"
+import "./TaskStatusButton.css";
 
 const TaskStatusButton = ({isComplete, id}) => {
     const [completed, setCompleted] = useState(isComplete);

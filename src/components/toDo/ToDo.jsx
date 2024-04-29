@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTask } from "../../context/TaskContext";
+import { TaskProvider } from "../../context/TaskContext";
 import TaskRow from "../taskRow/TaskRow";
 import TaskModal from "../taskModal/taskModal";
 import TaskFilter from "../Filter/Filter";
@@ -53,6 +54,7 @@ const ToDo = () => {
         <DateFilter setStartDate={setStartDate} setEndDate={setEndDate} />
         <TaskFilter setFilter={setFilter} />
       </div>
+      <TaskProvider>
       <div className="max-h-80 overflow-y-auto">
         {loading ? (
           <Loading />
@@ -68,6 +70,7 @@ const ToDo = () => {
           </div>
         )}
       </div>
+      </TaskProvider>
       <TaskModal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );

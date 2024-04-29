@@ -2,6 +2,7 @@ import { db } from '../config/firebase';
 import { collection, addDoc, getDocs, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import PropTypes from 'prop-types';
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
+
 export const TaskContext = createContext();
 
 export const useTask = () => {
@@ -57,16 +58,17 @@ export function TaskProvider({ children }) {
         }
     }, []);
 
-    const deleteTask = useCallback(async (taskId) => {       
+    const deleteTask = useCallback(async (task) => {      
+        console.log("deleteTask - task:", task); 
         try {
-            await deleteDoc(doc(db, "tasks", taskId));
-            setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+            await deleteDoc(doc(db, "tasks", task.id));
+            setTasks((prevTasks) => prevTasks.filter((t) => t.id !== task.id));
         } catch (err) {
             console.error("Error al eliminar la tarea: ", err);
             setError(err);
         }
-    },
-        []);
+    }, []);
+    
 
     const value = {
         tasks,
