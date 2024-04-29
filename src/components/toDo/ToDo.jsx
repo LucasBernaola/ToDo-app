@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTask } from "../../context/TaskContext";
 import TaskRow from "../taskRow/TaskRow";
 import TaskModal from "../taskModal/taskModal";
@@ -7,10 +7,9 @@ import DateFilter from "../DateFilter/DateFilter";
 import "../../styles/main.css";
 import "./ToDo.css";
 import Loading from "../Loading/Loading";
-import TaskFilter from "../Filter/Filter";
-import DateFilter from "../Filter/DataFilter";
 
 const ToDo = () => {
+  const { tasks, loading } = useTask();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filter, setFilter] = useState("all");
   const [startDate, setStartDate] = useState("");
