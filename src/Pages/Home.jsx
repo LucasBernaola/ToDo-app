@@ -35,12 +35,12 @@ const Home = () => {
                 <nav className="mb-20">
                     <ul className="flex space-x-20">                        
                         <li>
-                            <a href="#aboutApp" className="text-textSecondary no-underline font-arial text-3xl font-bold shadow-white" style={{ textShadow: "0px 0px 5px rgba(255, 255, 255, 0.5)" }}>
+                            <a href="#aboutApp" className="text-textSecondary no-underline font-arial text-3xl font-bold shadow-white animate-ping animate-twice" style={{ textShadow: "0px 0px 5px rgba(255, 255, 255, 0.5)" }}>
                                 About App
                             </a>
                         </li>
                         <li>
-                            <a href="#aboutUs" className="text-textSecondary no-underline font-arial text-3xl font-bold shadow-white" style={{ textShadow: "0px 0px 5px rgba(255, 255, 255, 0.5)" }}>
+                            <a href="#aboutUs" className="text-textSecondary no-underline font-arial text-3xl font-bold shadow-white animate-ping animate-twice" style={{ textShadow: "0px 0px 5px rgba(255, 255, 255, 0.5)" }}>
                                 About Us
                             </a>
                         </li>
@@ -50,7 +50,7 @@ const Home = () => {
                     initial="hidden"
                     animate="visible"
                     variants={variants}
-                    className="text-8xl font-bold text-textPrimary shadow-white"
+                    className="text-8xl font-bold text-textPrimary shadow-white animate-bounce animate-thrice"
                     style={{ textShadow: "0px 0px 10px rgba(255, 255, 255, 0.7)" }}
                 >
                     To-Do App

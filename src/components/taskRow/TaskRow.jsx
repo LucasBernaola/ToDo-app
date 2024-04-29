@@ -7,6 +7,7 @@ import TaskModal from "../taskModal/taskModal";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
+
 const TaskRow = ({ task }) => {
   const { deleteTask } = useTask();
   const [isModalOpen, setIsModalOpen] = useState(false);
