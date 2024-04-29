@@ -6,16 +6,6 @@ import "./taskModal.css";
 
 const { TextArea } = Input;
 
-beforeAll(() => {
-  window.matchMedia = window.matchMedia || function () {
-    return {
-      matches: false,
-      addListener: function () { },
-      removeListener: function () { }
-    };
-  };
-});
-
 const TaskModal = ({ isOpen, onClose, task }) => {
   const { addTask, updateTask } = useContext(TaskContext);
   const [form] = Form.useForm();
