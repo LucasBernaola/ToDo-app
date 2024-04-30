@@ -1,28 +1,28 @@
-import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import DateFilter from "./DateFilter";
+const {
+  handleStartDateChange,
+  handleEndDateChange,
+} = require("../../src/components/DateFilter/DateFilter");
 
-describe("DateFilter component", () => {
-  it("debería filtrar las tareas según el rango de fechas seleccionado", () => {
-    // Creamos mocks para las funciones setStartDate y setEndDate
-    const setStartDateMock = jest.fn();
-    const setEndDateMock = jest.fn();
+describe("DateFilter functions", () => {
+  describe("handleStartDateChange", () => {
+    test("should update start date correctly", () => {
+      const setStartDateMock = jest.fn();
+      const event = { target: { value: "2024-04-01" } };
 
-    // Renderizamos el componente DateFilter con las funciones de mock
-    const { getByLabelText } = render(
-      <DateFilter setStartDate={setStartDateMock} setEndDate={setEndDateMock} />
-    );
+      handleStartDateChange(event, setStartDateMock);
 
-    // Simulamos un cambio en el campo de fecha de inicio
-    const startDateInput = getByLabelText("Start Date:");
-    fireEvent.change(startDateInput, { target: { value: "2022-01-01" } });
+      expect(setStartDateMock).toHaveBeenCalledWith("2024-04-01");
+    });
+  });
 
-    // Simulamos un cambio en el campo de fecha de fin
-    const endDateInput = getByLabelText("End Date:");
-    fireEvent.change(endDateInput, { target: { value: "2022-01-31" } });
+  describe("handleEndDateChange", () => {
+    test("should update end date correctly", () => {
+      const setEndDateMock = jest.fn();
+      const event = { target: { value: "2024-04-30" } };
 
-    // Verificamos que las funciones setStartDate y setEndDate hayan sido llamadas con las fechas seleccionadas
-    expect(setStartDateMock).toHaveBeenCalledWith("2022-01-01");
-    expect(setEndDateMock).toHaveBeenCalledWith("2022-01-31");
+      handleEndDateChange(event, setEndDateMock);
+
+      expect(setEndDateMock).toHaveBeenCalledWith("2024-04-30");
+    });
   });
 });
