@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import { useTask } from "../../context/TaskContext";
 import TaskStatusButton from "../taskStatusButton/TaskStatusButton";
 import TaskModal from "../taskModal/taskModal";
+//icons
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 
 const TaskRow = ({ task }) => {
@@ -27,7 +31,7 @@ const TaskRow = ({ task }) => {
             className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
             onClick={() => deleteTask(id)}
           >
-            Delete
+            <DeleteIcon/>
           </button>
         </div>
       </div>
@@ -37,6 +41,16 @@ const TaskRow = ({ task }) => {
       <TaskModal task={task} isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
+};
+
+TaskRow.propTypes = {
+  task: PropTypes.shape({
+    id: PropTypes.string.isRequired, 
+    name: PropTypes.string.isRequired, 
+    description: PropTypes.string.isRequired, 
+    completed: PropTypes.bool.isRequired,
+    date: PropTypes.string.isRequired 
+  }).isRequired 
 };
 
 export default TaskRow;

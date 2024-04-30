@@ -10,9 +10,9 @@ import Loading from "../Loading/Loading";
 const ToDo = () => {
   const { tasks, loading } = useTask();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [filter, setFilter] = useState('all');
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [filter, setFilter] = useState("all");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -26,7 +26,6 @@ const ToDo = () => {
     return true;
   });
 
- 
   const filteredTasksByDate = filteredTasks.filter((task) => {
     if (startDate && endDate) {
       const taskDate = new Date(task.date);
@@ -72,5 +71,3 @@ const ToDo = () => {
 };
 
 export default ToDo;
-
-
