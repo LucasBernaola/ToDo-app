@@ -1,5 +1,12 @@
 // babel.config.js
 
 module.exports = {
-  presets: ["@babel/preset-env", "@babel/preset-react"],
+  setupFilesAfterEnv: ["./tests/components/setupTests.js"],
+  testEnvironment: "jest-environment-jsdom",
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+  },
+  transform: {
+    "^.+\\.[t|j]sx?$": "babel-jest",
+  },
 };

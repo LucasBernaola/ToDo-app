@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { TaskContext } from "../../context/TaskContext";
-import { Modal, Form, Input, Button, DatePicker, notification } from "antd"; // Importa el componente Form de Ant Design
+import { Modal, Form, Input, Button, DatePicker, notification } from "antd";
 import moment from "moment";
 import "./taskModal.css";
 
@@ -8,7 +8,7 @@ const { TextArea } = Input;
 
 const TaskModal = ({ isOpen, onClose, task }) => {
   const { addTask, updateTask } = useContext(TaskContext);
-  const [form] = Form.useForm(); // Utiliza el hook useForm dentro del componente Form de Ant Design
+  const [form] = Form.useForm();
   const taskExist = !!task;
 
   useEffect(() => {
@@ -69,7 +69,7 @@ const TaskModal = ({ isOpen, onClose, task }) => {
         </Button>,
       ]}
     >
-      <Form form={form} layout="vertical"> {/* Asegúrate de que el hook useForm esté conectado al componente Form */}
+      <Form form={form} layout="vertical">
         <Form.Item
           name="taskName"
           label="Nombre de la Tarea"
