@@ -43,15 +43,6 @@ const TaskRow = ({ task }) => {
   );
 };
 
-TaskRow.propTypes = {
-  task: PropTypes.shape({
-    id: PropTypes.string.isRequired, 
-    name: PropTypes.string.isRequired, 
-    description: PropTypes.string.isRequired, 
-    completed: PropTypes.bool.isRequired,
-    date: PropTypes.string.isRequired 
-  }).isRequired 
-};
 
 export default TaskRow;
 
