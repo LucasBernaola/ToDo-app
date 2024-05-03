@@ -39,5 +39,6 @@ const TaskRow = ({ task }) => {
   );
 };
 
+
 export default TaskRow;
 
