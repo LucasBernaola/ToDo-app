@@ -5,7 +5,6 @@ import { Form, notification } from 'antd';
 import { TaskContext } from '../../src/context/TaskContext';
 import TaskModal from '../../src/components/taskModal/taskModal';
 
-// Simulación del módulo de notificaciones de AntD
 jest.mock('antd', () => {
   const antd = jest.requireActual('antd');
   const notificationMock = {
@@ -18,7 +17,6 @@ jest.mock('antd', () => {
   };
 });
 
-// Función utilitaria para renderizar el componente dentro del proveedor TaskContext
 const renderTaskModal = (props, contextValue) => {
   return render(
     <TaskContext.Provider value={contextValue}>
@@ -47,23 +45,21 @@ describe('TaskModal', () => {
     jest.clearAllMocks();
   });
 
-    it('debe mostrar el modal cuando isOpen es true y ocultarlo cuando es false', async () => {
-      const { queryByText, rerender } = renderTaskModal({ isOpen: true, onClose: mockClose }, contextValue);
-      expect(queryByText('Agregar Nueva Tarea')).toBeInTheDocument();
-      
-      // Update the prop and rerender the component
-      rerender(<TaskContext.Provider value={contextValue}><div></div></TaskContext.Provider>);
-rerender(
-  <TaskContext.Provider value={contextValue}>
-    <TaskModal isOpen={false} onClose={mockClose} />
-  </TaskContext.Provider>
-);
-      
-      // Wait for the expected change
-      await waitFor(() => {
-        expect(queryByText('Agregar Nueva Tarea')).not.toBeInTheDocument();
-      }, { timeout: 1000 });
-    });
+  it('debe mostrar el modal cuando isOpen es true y ocultarlo cuando es false', async () => {
+    const { queryByText, rerender } = renderTaskModal({ isOpen: true, onClose: mockClose }, contextValue);
+    expect(queryByText('Agregar Nueva Tarea')).toBeInTheDocument();
+
+    rerender(<TaskContext.Provider value={contextValue}><div></div></TaskContext.Provider>);
+    rerender(
+      <TaskContext.Provider value={contextValue}>
+        <TaskModal isOpen={false} onClose={mockClose} />
+      </TaskContext.Provider>
+    );
+
+    await waitFor(() => {
+      expect(queryByText('Agregar Nueva Tarea')).not.toBeInTheDocument();
+    }, { timeout: 1000 });
+  });
 
   it('debe llenar los campos del formulario cuando se proporciona una tarea existente', () => {
     const task = {
@@ -80,27 +76,23 @@ rerender(
 
   it('debería llamar a addTask y mostrar una notificación de éxito al agregar una nueva tarea', async () => {
     const { getByText, getByRole } = renderTaskModal({ isOpen: true, onClose: mockClose, task: null }, { addTask: mockAddTask });
-  
+
     const nameInput = getByRole('textbox', { name: /nombre de la tarea/i });
     const descriptionInput = getByRole('textbox', { name: /descripción/i });
     const datePickerInput = getByRole('textbox', { name: /fecha de la tarea/i });
-  
-    // Configurar los inputs de texto
+
     fireEvent.change(nameInput, { target: { value: 'Nueva Tarea' } });
     fireEvent.change(descriptionInput, { target: { value: 'Nueva Descripción' } });
-  
-    // Simular entrada directa de fecha, asumiendo que puedes hacerlo como texto
+
     fireEvent.change(datePickerInput, { target: { value: '2023-01-15' } });
-  
-    // Envío del formulario
+
     fireEvent.click(getByText(/agregar tarea/i));
-  
-    // Verificar que addTask ha sido llamada
+
     await waitFor(() => {
       expect(mockAddTask).toHaveBeenCalledWith({
         name: 'Nueva Tarea',
         description: 'Nueva Descripción',
-        date: expect.any(String) // Verifica que la fecha esté en el formato esperado
+        date: expect.any(String)
       });
     });
   });
