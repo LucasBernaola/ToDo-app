@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
+=======
+import React from 'react';
+import { useState } from "react";
+import PropTypes from "prop-types";
+>>>>>>> 65509eb96b1b7443bce1b7ad95f30b5eed261283
 import { useTask } from "../../context/TaskContext";
 import TaskStatusButton from "../taskStatusButton/TaskStatusButton";
 import TaskModal from "../taskModal/taskModal";
