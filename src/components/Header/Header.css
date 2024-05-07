@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  height: 600px;
+  background: linear-gradient(#4CAF5059, white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.card {
+  background-color: white;
+  padding: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond';
+  color: black;
+  font-size: 2rem;
+}
+
+.card-description {
+  font-family: 'Arial', sans-serif;
+  color: black;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+@media (max-width: 992px) {
+  .header {
+    height: auto;
+    padding: 50px 0;
+  }
+
+  .card {
+    padding: 40px;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .card-description {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+}

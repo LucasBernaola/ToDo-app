@@ -1,0 +1,45 @@
+.container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 90vh;
+   width: 100vw;
+   
+
+}
+
+
+h1{
+    font-size: 50px;
+    margin: 3rem;
+    border: 2px solid red;
+  
+   
+}
+img{
+    height: 45vh;
+    margin  : 3rem;
+    border: 2px solid red;
+     
+
+}
+
+
+@media (max-width: 600px) {
+    .container {
+       height: auto; 
+       flex-direction: column;
+       
+
+    }
+  
+    h1 {
+        font-size: 7vw; 
+        margin: 4vw; 
+    }
+  
+    img {
+        height: 20vh; 
+        margin: 4vw; 
+    }
+  }

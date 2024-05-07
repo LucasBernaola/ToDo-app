@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTask } from "../../context/TaskContext";
 import TaskStatusButton from "../taskStatusButton/TaskStatusButton";
 import TaskModal from "../taskModal/taskModal";
-
+import './TaskRow.css';
 
 const TaskRow = ({ task }) => {
   const { deleteTask } = useTask();
@@ -13,31 +13,32 @@ const TaskRow = ({ task }) => {
   const { id, name, description, completed, date } = task;
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 mb-4">
-      <div className="flex items-center justify-between mb-2">
+    <div className="task-row">
+      <div className="task-info">
         <TaskStatusButton isComplete={completed} id={id} />
-        <div>
-          <button 
-            className="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        <div className="task-buttons">
+          <button
+            className="edit-button"
             onClick={openModal}
           >
-            Edit Task
+            Editar
           </button>
-          <button 
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          <button
+            className="delete-button"
             onClick={() => deleteTask(id)}
           >
-            Delete
+            Borrar
           </button>
         </div>
       </div>
-      <h2 className={`text-lg font-bold ${completed ? "line-through" : ""}`}>{name}</h2>
-      <p className="text-sm break-all">{description}</p>
-      <p className="text-xs text-gray-500">{date}</p>
+      <h2 className={`task-name ${completed ? "completed" : ""}`}>{name}</h2>
+      <p className="task-description">{description}</p>
+      <p className="task-date">{date}</p>
       <TaskModal task={task} isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };
 
 export default TaskRow;
+
 

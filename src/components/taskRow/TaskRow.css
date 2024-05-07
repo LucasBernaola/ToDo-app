@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.task-row {
+  background-color: #F5F5DC;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  font-family: 'Dancing Script', cursive;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+
+}
+
+.task-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.task-button {
+  background-color: transparent;
+  color: #4CAF50;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border: none;
+}
+
+.task-button:hover {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+.edit-button {
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #1159f4;
+  border-radius: 20px;
+}
+
+.delete-button {
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #f40404;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .task-row {
+    font-size: 14px;
+    padding: 0.8rem;
+  }
+
+  .task-info {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0.3rem;
+  }
+
+  .task-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .task-button {
+    margin-right: 0;
+    margin-bottom: 0.3rem;
+  }
+
+  .edit-button,
+  .delete-button {
+    width: 100%;
+  }
+}
