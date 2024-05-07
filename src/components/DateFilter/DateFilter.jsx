@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import "./DateFilter.css";
 
+const handleStartDateChange = (event, setStartDate) => {
+  const value = event.target.value;
+  setStartDate(value);
+};
+
+const handleEndDateChange = (event, setEndDate) => {
+  const value = event.target.value;
+  setEndDate(value);
+};
+
 const DateFilter = ({ setStartDate, setEndDate }) => {
   const [startDate, setLocalStartDate] = useState("");
   const [endDate, setLocalEndDate] = useState("");
 
-  const handleStartDateChange = (event) => {
-    const value = event.target.value;
-    setLocalStartDate(value);
-    setStartDate(value);
+  const handleStartDateChangeInternal = (event) => {
+    handleStartDateChange(event, setStartDate);
+    setLocalStartDate(event.target.value);
   };
 
-  const handleEndDateChange = (event) => {
-    const value = event.target.value;
-    setLocalEndDate(value);
-    setEndDate(value);
+  const handleEndDateChangeInternal = (event) => {
+    handleEndDateChange(event, setEndDate);
+    setLocalEndDate(event.target.value);
   };
 
   return (
@@ -47,4 +55,5 @@ const DateFilter = ({ setStartDate, setEndDate }) => {
   );
 };
 
+export { handleStartDateChange, handleEndDateChange };
 export default DateFilter;

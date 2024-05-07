@@ -6,7 +6,7 @@ import Home from './Pages/Home';
 import ToDoApp from './Pages/To-DoApp';
 import AboutPage from './Pages/AboutPage';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <TaskProvider>
@@ -20,4 +20,3 @@ root.render(
     </TaskProvider>
   </React.StrictMode>
 );
-

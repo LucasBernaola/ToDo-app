@@ -6,6 +6,8 @@ import FeaturedFeatures from '../components/FeaturedFeatures/FeaturedFeatures';
 import ProductivitySection from '../components/ProductivitySection/ProductivitySection';
 import Footer from '../components/Footer/Footer';
 
+import ".././styles/home.css"
+
 const Home = () => {
 
     return (
