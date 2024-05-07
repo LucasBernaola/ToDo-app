@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTask } from "../../context/TaskContext";
 import TaskStatusButton from "../taskStatusButton/TaskStatusButton";
 import TaskModal from "../taskModal/taskModal";
-
+import './TaskRow.css';
 
 const TaskRow = ({ task }) => {
   const { deleteTask } = useTask();
