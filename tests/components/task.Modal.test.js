@@ -5,7 +5,6 @@ import { Form, notification } from "antd";
 import { TaskContext } from "../../src/context/TaskContext";
 import TaskModal from "../../src/components/taskModal/taskModal";
 
-// Simulación del módulo de notificaciones de AntD
 jest.mock("antd", () => {
   const antd = jest.requireActual("antd");
   const notificationMock = {
@@ -18,7 +17,6 @@ jest.mock("antd", () => {
   };
 });
 
-// Función utilitaria para renderizar el componente dentro del proveedor TaskContext
 const renderTaskModal = (props, contextValue) => {
   return render(
     <TaskContext.Provider value={contextValue}>

@@ -1,5 +1,3 @@
-// firebase.test.js
-
 const { db } = require("../../src/config/firebase");
 
 describe('Firebase connection', () => {
