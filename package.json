@@ -50,7 +50,6 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3",
     "tailwindcss-animated": "^1.0.1",
     "vite": "^5.2.0",
     "vite-plugin-windicss": "^1.9.3"

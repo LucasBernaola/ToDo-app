@@ -4,9 +4,9 @@ import TaskRow from "../taskRow/TaskRow";
 import TaskModal from "../taskModal/taskModal";
 import TaskFilter from "../Filter/Filter";
 import DateFilter from "../DateFilter/DateFilter";
-import "../../styles/main.css";
-import "./ToDo.css";
 import Loading from "../Loading/Loading";
+import "./ToDo.css";
+
 const ToDo = () => {
   const { tasks, loading } = useTask();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +26,6 @@ const ToDo = () => {
     return true;
   });
 
- 
   const filteredTasksByDate = filteredTasks.filter((task) => {
     if (startDate && endDate) {
       const taskDate = new Date(task.date);
@@ -38,31 +37,32 @@ const ToDo = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 max-w-6xl mb-15 h-full">
-      <div className="my-8 flex justify-center mb-20">
-        <button
-          className="bg-green-500 hover:bg-secondary text-textSecondary text-4xl font-bold py-2 px-20 rounded shadow-lg animate-pulse animate-infinite animate-ease-in"
-          onClick={openModal}
-        >
-          Add new task
+    <div className="todo-container">
+      <div className="welcome-section">
+        <h1 className="welcome-heading">¡Bienvenido a nuestra aplicación!</h1>
+        <p className="welcome-message">Empieza a organizar tus tareas pulsando el botón a continuación.</p>
+      </div>
+      <div className="add-task-section">
+        <button className="add-task-button" onClick={openModal}>
+          Agregar Nueva Tarea
         </button>
       </div>
-      <div className="my-4 flex justify-between">
+      <div className="filters-section">
         <DateFilter setStartDate={setStartDate} setEndDate={setEndDate} />
         <TaskFilter setFilter={setFilter} />
       </div>
-      <div className="max-h-80 overflow-y-auto">
+      <div className="tasks-section">
         {loading ? (
           <Loading />
         ) : filteredTasksByDate.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+          <div className="task-list">
             {filteredTasksByDate.map((task) => (
               <TaskRow key={task.id} task={task} />
             ))}
           </div>
         ) : (
-          <div className="flex justify-center items-center h-48 bg-white shadow-md rounded-lg p-4">
-            <p className="text-lg text-gray-700">No tasks found</p>
+          <div className="no-tasks-found">
+            <p>No hay tareas agendadas</p>
           </div>
         )}
       </div>
@@ -72,5 +72,6 @@ const ToDo = () => {
 };
 
 export default ToDo;
+
 
 

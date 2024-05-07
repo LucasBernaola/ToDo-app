@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./DateFilter.css";
 
 const DateFilter = ({ setStartDate, setEndDate }) => {
   const [startDate, setLocalStartDate] = useState("");
@@ -17,28 +18,31 @@ const DateFilter = ({ setStartDate, setEndDate }) => {
   };
 
   return (
-    <div className="my-4 flex flex-col sm:flex-row items-center">
-      <label className="mr-2 mb-2 sm:mb-0 font-medium text-textPrimary" htmlFor="startDate">
-        Start Date:
-      </label>
-      <input
-        className="border rounded-md py-1 px-2 mb-2 sm:mb-0 mr-2 sm:mr-4 focus:outline-none focus:ring focus:border-primary"
-        type="date"
-        id="startDate"
-        value={startDate}
-        onChange={handleStartDateChange}
-      />
+    <div className="date-filter-container">
+      <h2 className="date-filter-title">Filtro de Tareas por Fecha</h2>
+      <div className="date-filters">
+        <div className="date-filter">
+          <label htmlFor="startDate">Desde Fecha:</label>
+          <input
+            className="date-input"
+            type="date"
+            id="startDate"
+            value={startDate}
+            onChange={handleStartDateChange}
+          />
+        </div>
 
-      <label className="mr-2 mb-2 sm:mb-0 font-medium text-textPrimary" htmlFor="endDate">
-        End Date:
-      </label>
-      <input
-        className="border rounded-md py-1 px-2 mb-2 sm:mb-0 mr-2 sm:mr-4 focus:outline-none focus:ring focus:border-primary"
-        type="date"
-        id="endDate"
-        value={endDate}
-        onChange={handleEndDateChange}
-      />
+        <div className="date-filter">
+          <label htmlFor="endDate">Hasta Fecha:</label>
+          <input
+            className="date-input"
+            type="date"
+            id="endDate"
+            value={endDate}
+            onChange={handleEndDateChange}
+          />
+        </div>
+      </div>
     </div>
   );
 };

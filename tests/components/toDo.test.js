@@ -4,7 +4,6 @@ import ToDo from '../../src/components/toDo/ToDo';
 import { render, fireEvent, screen } from '@testing-library/react';
 
 
-// window.matchMedia es una función del navegador que se utiliza para consultar el estado de los media queries CSS. Si tu componente o alguna librería que estás utilizando (como parece ser Ant Design en este caso) usa esta función, necesitarás proporcionar un mock para matchMedia en tu entorno de pruebas.
 beforeAll(() => {
   window.matchMedia = jest.fn().mockImplementation(query => {
     return {
@@ -21,13 +20,11 @@ beforeAll(() => {
 });
 
 
-// Mock del contexto
 const mockUseTask = {
   tasks: [],
   loading: false,
 };
 
-// Wrapper para proveer el contexto mockeado
 const Wrapper = ({ children }) => (
   <TaskContext.Provider value={mockUseTask}>{children}</TaskContext.Provider>
 );

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Filter.css';
 
 const TaskFilter = ({ setFilter }) => {
   const [selectedFilter, setSelectedFilter] = useState("all");
@@ -10,31 +11,23 @@ const TaskFilter = ({ setFilter }) => {
   };
 
   return (
-    <div className="my-4 flex items-center">
-      <label
-        className="mr-2 font-medium text-textPrimary"
-        htmlFor="filterSelect"
-      >
-        Status:
-      </label>
-      <select
-        className="border rounded-md py-1 px-2 focus:outline-none focus:ring focus:border-primary"
-        id="filterSelect"
-        value={selectedFilter}
-        onChange={handleFilterChange}
-      >
-        <option className="text-textPrimary" value="all">
-          All
-        </option>
-        <option className="text-textPrimary" value="completed">
-          Completed
-        </option>
-        <option className="text-textPrimary" value="incomplete">
-          Incomplete
-        </option>
-      </select>
+    <div className="task-filter-container">
+      <div className="task-filter">
+        <h3 className="filter-title">Filtro por Estado de Tarea:</h3>
+        <select
+          className="filter-select"
+          id="filterSelect"
+          value={selectedFilter}
+          onChange={handleFilterChange}
+        >
+          <option value="all">Todo</option>
+          <option value="completed">Completada</option>
+          <option value="incomplete">Incompleta</option>
+        </select>
+      </div>
     </div>
   );
 };
 
 export default TaskFilter;
+
